@@ -37,7 +37,9 @@ export default class CollapsibleList extends Component {
 
   setMinHeight = (event) => {
     const {height: minHeight} = event.nativeEvent.layout;
-
+    if(this.state.collapsed) {
+       return 
+     }
     this.setState({minHeight}, () => {
       this.setState({initialized: true, currentHeight: minHeight});
     });
