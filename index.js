@@ -71,14 +71,15 @@ export default class CollapsibleList extends Component {
     const {
       numberOfVisibleItems,
       buttonContent,
-      children
+      children,
+      isTouchable = true
     } = this.props
 
     if (numberOfVisibleItems > React.Children.count(children)) return null
   
     return (
       <View>
-        <TouchableOpacity onPress={this.toggle} activeOpacity={0.8}>
+        <TouchableOpacity onPress={isTouchable ? this.toggle : () => {}} activeOpacity={isTouchable ? 0.8 : 1}>
           {buttonContent}
         </TouchableOpacity>
       </View>
